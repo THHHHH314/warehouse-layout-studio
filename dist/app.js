@@ -55,11 +55,13 @@ add('zone','Shipping Parcel',94,51,24,5);
 add('zone','Parcel team packing Area',94,57,12,6,'#e6c598');
 add('zone','Shipping Parcel area',108,57,10,6);
 add('zone','Will Call',94,64,24,5);
-add('rack','West rack',36,3,3,23);
-for(let i=0;i<9;i++)add('rack','A'+String(i+1).padStart(2,'0'),44+i*4.7,5,1.8,15);
-for(let i=0;i<9;i++)add('rack','B'+String(i+1).padStart(2,'0'),48+i*4.7,27,1.8,17);
-for(let i=0;i<12;i++)add('rack','C'+String(i+1).padStart(2,'0'),27+i*4.9,51.5,1.8,17);
-for(let i=0;i<6;i++)add('table','Equipment '+(i+1),33+i*2.3,32,1.8,5);
+// Rack faces follow the photographed reference, left to right.
+// Two touching faces form a pair; the last bottom label reads AJ.
+const rackX=[33,44,45.8,55,56.8,66,67.8,77,78.8];
+['AS','AR','AQ','AP','AN','AM','AL','AK','AJ'].forEach((name,i)=>add('rack',name,rackX[i],5,1.8,15));
+['BQ','BP','BN','BM','BL','BK','BJ'].forEach((name,i)=>add('rack',name,rackX[i+2],27,1.8,17));
+['DR','DQ','DP','DN','AY','AX','AW','AV','AJ'].forEach((name,i)=>add('rack',name,rackX[i],51.5,1.8,17));
+for(let i=0;i<6;i++)add('table','Equipment '+(i+1),28+i*2.3,32,1.8,5);
 add('wall','High-value room north wall',38,50.5,43,.5);add('wall','High-value room west wall',38,51,.5,18);add('wall','High-value room east wall',81,51,.5,18);
 add('wall','High-value room partition',52,51,.5,18);add('wall','High-value room partition',62,51,.5,18);
 add('door','Will Call',101,69,10,1);add('door','Entrance (verify)',29,69,8,1);
